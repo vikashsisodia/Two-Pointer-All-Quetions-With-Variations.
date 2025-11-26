@@ -1,0 +1,37 @@
+✨ Q26: Remove Duplicates from Sorted Array ✨
+📌 (Hinglish + Short + Coding Style)
+🧮 Given: Ek integer array nums diya hai, jo sorted (non-decreasing order) me hai.
+🛠️ Task:
+Same number baar-baar repeat ho raha ho to duplicates ko remove karo (in-place) 👇
+➡️ Har unique element sirf ek baar array me rehna chahiye.
+➡️ Relative order same rehna chahiye (sorting disturb nahi honi chahiye).
+
+🎯 Output:
+Array me unique elements ki count k return karo.
+📍 nums ke first k elements me sorted unique values honi chahiye.
+📍 k ke baad wale elements ignore kar sakte ho.
+
+💡 Simple Samajh:
+Sorted array me se duplicate hatao, aur kitne unique elements bach gaye woh k batao. 😄
+🔥 Example:
+[1,1,2,2,2,3] → unique = [1,2,3] → k = 3
+
+
+import java.util.*;
+public class Coding {
+    public static void main(String[] args) {
+        int arr[] = {1,2,3,3,4,4,4};   // 📌 Sorted array with duplicates
+        int k = 1;                     // 🏁 Pointer to track unique elements
+        for(int i = 1; i < arr.length; i++) {   // 🔍 Loop from second element onwards           
+            if(arr[i] != arr[k - 1]) {         // ✨ Check: current != last unique
+                arr[k] = arr[i];               // 🏗️ Store unique element at index k
+                k++;                           // ⏫ Increase unique count
+            }
+        }
+        // 🖨️ Print only the unique elements (first k elements)
+        for(int i = 0; i < k; i++) {
+            System.out.print(arr[i] + " ");    // 📤 Output: 1 2 3 4
+        }
+    }
+}
+
