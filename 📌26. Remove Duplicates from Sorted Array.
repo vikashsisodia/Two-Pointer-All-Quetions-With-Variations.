@@ -1,0 +1,41 @@
+✨ Q27: Remove Element ✨
+📌 (Hinglish + Short + Coding Style)
+
+🧮 Given: Ek integer array nums hai aur ek value val di hui hai.
+
+🛠️ Task:
+Array me jitni bhi val value ke occurrences hai, sabko remove karo (in-place) 👇
+➡️ Order change ho sakta hai, koi problem nahi.
+➡️ Bas un elements ko rakhna hai jo val ke equal nahi hai.
+
+🎯 Output:
+Array me jitne elements val ke equal nahi hai, unka count k return karo.
+
+💡 Simple Samajh:
+Array me se val hatao, aur bache huye elements kitne hain woh k batao. 😄
+👉 First k elements hi valid honge, baaki ignore.
+
+🔥 Example:
+nums = [3,2,2,3], val = 3
+Remove 3 → [2,2,_ , _] → k = 2
+
+👨‍💻 Ready to Code? 🚀
+
+import java.util.*;
+public class Coding {
+    public static void main(String[] args) { 
+        int arr[] = {1,2,3,3,4,4,4}; // 📌 Array jisme hume target remove karna hai
+        int target = 4;             // 🎯 Jis element ko hatana hai (val)
+        int k = 0; // 🧮 Yeh count karega ki kitne elements target ke alawa bache
+        for(int i = 0; i < arr.length; i++) {  // 🔍 Poore array ko check karo
+            if(arr[i] != target) {             // 💡 Agar element target ke equal nahi hai
+                arr[k] = arr[i];               // 📝 Toh usko array ke start me store karo
+                k++;                            // ➕ Valid (non-target) elements ki counting badhao
+            }
+        }
+        // 🖨️ Sirf pehle k elements print karo, wahi valid (target removed) array hai
+        for(int i = 0; i < k; i++) {
+            System.out.print(arr[i] + " ");    // 📤 Output without target: 1 2 3 3
+        }
+    }
+}
